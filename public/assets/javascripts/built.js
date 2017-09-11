@@ -31052,36 +31052,66 @@ if (typeof jQuery === 'undefined') {
 })(function(React) {
   return React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 });
-;var App = React.createClass({
-	displayName: "App",
+;"use strict";
 
-	render: function () {
-		return React.createElement(
-			"div",
-			null,
-			React.createElement(
-				"div",
-				{ className: "container" },
-				React.createElement(User, null)
-			),
-			React.createElement(
-				"div",
-				{ className: "container list-news" },
-				React.createElement(Features, null)
-			)
-		);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var App = function (_React$Component) {
+	_inherits(App, _React$Component);
+
+	function App(props) {
+		_classCallCheck(this, App);
+
+		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+		_this.state = {
+			loaged: false
+		};
+		return _this;
 	}
-});
-;var Features = React.createClass({
+
+	_createClass(App, [{
+		key: "render",
+		value: function render() {
+			console.log(this.state);
+
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"div",
+					{ className: "container" },
+					React.createElement(User, null)
+				),
+				React.createElement(
+					"div",
+					{ className: "container list-news" },
+					React.createElement(Features, null)
+				)
+			);
+		}
+	}]);
+
+	return App;
+}(React.Component);
+;'use strict';
+
+var Features = React.createClass({
     displayName: 'Features',
 
-    getInitialState: function () {
+    getInitialState: function getInitialState() {
         return {
             items: [],
             loaded: false
         };
     },
-    render: function () {
+    render: function render() {
         var rows = [];
 
         if (!this.state.loaded) {
@@ -31103,10 +31133,10 @@ if (typeof jQuery === 'undefined') {
             )
         );
     },
-    componentDidMount: function () {
+    componentDidMount: function componentDidMount() {
         this.getItemAjax();
     },
-    getItemAjax: function (params) {
+    getItemAjax: function getItemAjax(params) {
         params = $.extend({
             route: 'posts'
         }, params || {});
@@ -31119,13 +31149,13 @@ if (typeof jQuery === 'undefined') {
 
         ajax.done(this.setAjaxItems);
     },
-    setAjaxItems: function (response) {
+    setAjaxItems: function setAjaxItems(response) {
         this.setState({
             items: response,
             loaded: true
         });
     },
-    renderWaitMode: function () {
+    renderWaitMode: function renderWaitMode() {
         return React.createElement(
             'p',
             null,
@@ -31133,10 +31163,12 @@ if (typeof jQuery === 'undefined') {
         );
     }
 });
-;var Form = React.createClass({
+;"use strict";
+
+var Form = React.createClass({
 	displayName: "Form",
 
-	render: function () {
+	render: function render() {
 		return React.createElement(
 			"div",
 			{ className: "search-wrap row" },
@@ -31164,7 +31196,7 @@ if (typeof jQuery === 'undefined') {
 			)
 		);
 	},
-	handleSubmit: function (e) {
+	handleSubmit: function handleSubmit(e) {
 		e.preventDefault();
 
 		this.props.list.getItemAjax({
@@ -31174,13 +31206,15 @@ if (typeof jQuery === 'undefined') {
 		});
 	}
 });
-;var Post = React.createClass({
+;"use strict";
+
+var Post = React.createClass({
 	displayName: "Post",
 
-	componentWillMount: function () {
+	componentWillMount: function componentWillMount() {
 		this.post = this.props.post;
 	},
-	render: function () {
+	render: function render() {
 		return React.createElement(
 			"div",
 			{ className: "col-lg-3" },
@@ -31201,10 +31235,10 @@ if (typeof jQuery === 'undefined') {
 			)
 		);
 	},
-	getExcerpt: function () {
+	getExcerpt: function getExcerpt() {
 		return { __html: this.post.excerpt.rendered };
 	},
-	getImage: function () {
+	getImage: function getImage() {
 		if (!this.post.thumbnail) {
 			return;
 		}
@@ -31212,25 +31246,27 @@ if (typeof jQuery === 'undefined') {
 		return React.createElement("img", { src: this.post.thumbnail, alt: this.post.title.rendered });
 	}
 });
-;var User = React.createClass({
+;'use strict';
+
+var User = React.createClass({
     displayName: 'User',
 
-    getInitialState: function () {
+    getInitialState: function getInitialState() {
         return {
             user: {},
             loaded: false
         };
     },
-    componentDidMount: function () {
+    componentDidMount: function componentDidMount() {
         $.getJSON('/rest/?route=users/me', this.setAjaxUser);
     },
-    setAjaxUser: function (response) {
+    setAjaxUser: function setAjaxUser(response) {
         this.setState({
             user: response,
             loaded: true
         });
     },
-    render: function () {
+    render: function render() {
         if (!this.state.loaded) {
             return this.renderWaitMode();
         }
@@ -31251,7 +31287,7 @@ if (typeof jQuery === 'undefined') {
             )
         );
     },
-    renderWaitMode: function () {
+    renderWaitMode: function renderWaitMode() {
         return React.createElement(
             'div',
             { className: 'starter-template' },

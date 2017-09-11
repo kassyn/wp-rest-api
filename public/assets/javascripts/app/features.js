@@ -1,13 +1,15 @@
+'use strict';
+
 var Features = React.createClass({
     displayName: 'Features',
 
-    getInitialState: function () {
+    getInitialState: function getInitialState() {
         return {
             items: [],
             loaded: false
         };
     },
-    render: function () {
+    render: function render() {
         var rows = [];
 
         if (!this.state.loaded) {
@@ -29,10 +31,10 @@ var Features = React.createClass({
             )
         );
     },
-    componentDidMount: function () {
+    componentDidMount: function componentDidMount() {
         this.getItemAjax();
     },
-    getItemAjax: function (params) {
+    getItemAjax: function getItemAjax(params) {
         params = $.extend({
             route: 'posts'
         }, params || {});
@@ -45,13 +47,13 @@ var Features = React.createClass({
 
         ajax.done(this.setAjaxItems);
     },
-    setAjaxItems: function (response) {
+    setAjaxItems: function setAjaxItems(response) {
         this.setState({
             items: response,
             loaded: true
         });
     },
-    renderWaitMode: function () {
+    renderWaitMode: function renderWaitMode() {
         return React.createElement(
             'p',
             null,

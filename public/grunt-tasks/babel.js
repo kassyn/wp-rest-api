@@ -1,7 +1,7 @@
 module.exports = {
     options : {
         sourceMap : false,
-        presets : ['react']
+        presets : ['react', 'es2015']
     },
     app : {
 		files : [{

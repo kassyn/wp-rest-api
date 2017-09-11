@@ -1,10 +1,12 @@
+"use strict";
+
 var Post = React.createClass({
 	displayName: "Post",
 
-	componentWillMount: function () {
+	componentWillMount: function componentWillMount() {
 		this.post = this.props.post;
 	},
-	render: function () {
+	render: function render() {
 		return React.createElement(
 			"div",
 			{ className: "col-lg-3" },
@@ -25,10 +27,10 @@ var Post = React.createClass({
 			)
 		);
 	},
-	getExcerpt: function () {
+	getExcerpt: function getExcerpt() {
 		return { __html: this.post.excerpt.rendered };
 	},
-	getImage: function () {
+	getImage: function getImage() {
 		if (!this.post.thumbnail) {
 			return;
 		}

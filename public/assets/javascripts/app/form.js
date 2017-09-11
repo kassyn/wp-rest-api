@@ -1,7 +1,9 @@
+"use strict";
+
 var Form = React.createClass({
 	displayName: "Form",
 
-	render: function () {
+	render: function render() {
 		return React.createElement(
 			"div",
 			{ className: "search-wrap row" },
@@ -29,7 +31,7 @@ var Form = React.createClass({
 			)
 		);
 	},
-	handleSubmit: function (e) {
+	handleSubmit: function handleSubmit(e) {
 		e.preventDefault();
 
 		this.props.list.getItemAjax({

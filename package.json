@@ -18,14 +18,17 @@
   "author": "kassyn",
   "license": "MIT",
   "dependencies": {
-     "body-parser": "~1.13.2",
-     "cookie-parser": "~1.3.5",
-     "express": "^4.13.4",
-     "express-session": "^1.13.0",
-     "jade": "~1.11.0",
-     "oauth": "^0.9.14",
-     "qs": "^6.1.0"
-   },
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "hmacsha1": "^1.0.0",
+    "jade": "~1.11.0",
+    "node-fetch": "^1.6.3",
+    "oauth": "^0.9.14",
+    "qs": "^6.1.0",
+    "querystring": "^0.2.0"
+  },
   "bugs": {
     "url": "https://github.com/kassyn/wp-rest-api/issues"
   },

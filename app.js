@@ -43,6 +43,9 @@ app.get( '/callback', function(req, res) {
 
 	      	req.session.access.token  = token;
 			req.session.access.secret = secret;
+
+			console.log( token, secret );
+
 			res.redirect( 'http://localhost:3000' );
 		}
 	);
@@ -58,7 +61,7 @@ app.get( '/auth', function(req, res) {
 		req.session.access = {};
 		req.session.token  = token;
 		req.session.secret = secret;
-		res.redirect( 'http://localhost/rest/oauth1/authorize/?oauth_token=' + token );
+		res.redirect( `${service.url}/oauth1/authorize/?oauth_token=${token}` );
 	});
 });
 
